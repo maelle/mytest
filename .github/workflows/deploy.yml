@@ -30,6 +30,7 @@ jobs:
       - name: Extract Artifact URL
         run: |
           echo "Artifact URL is: ${{ steps.upload_artifact.outputs.artifact-url }}"
+          echo "Artifact ID is: ${{ steps.upload_artifact.outputs.artifact-id }}"
           
       - name: Deploy the thing
         run: |
@@ -41,4 +42,4 @@ jobs:
               -H "Accept: application/vnd.github+json" \
               -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
               https://api.github.com/repos/${{ github.repository }}/pages/deployments \
-              -d '{"artifact_url":"${{ steps.upload_artifact.outputs.artifact-url }}","environment":"github-pages","pages_build_version":"$VERSION","oidc_token":"$OIDC_TOKEN"}'
+              -d '{"artifact_id":"${{ steps.upload_artifact.outputs.artifact-id }}","environment":"github-pages","pages_build_version":"$VERSION","oidc_token":"$OIDC_TOKEN"}'

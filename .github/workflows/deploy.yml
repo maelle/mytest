@@ -17,7 +17,8 @@ jobs:
       - name: Download the thing
         run: |
             curl https://ggseg.r-universe.dev/api/snapshot/zip -Lo thing.zip
-            unzip thing.zip && rm -f thing.zip
+            mkdir thing
+            unzip thing.zip -d thing && rm -f thing.zip
 
       - name: Artifactize the thing
         id: upload_artifact

@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Download the thing
         run: |
-            curl https://ggseg.r-universe.dev/api/snapshot/zip -Lo thing.zip
+            curl https://maelle.r-universe.dev/api/snapshot/zip?binaries=4.5 -Lo thing.zip
             mkdir thing
             unzip thing.zip -d thing && rm -f thing.zip
 

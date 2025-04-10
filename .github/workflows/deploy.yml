@@ -42,4 +42,4 @@ jobs:
               -H "Accept: application/vnd.github+json" \
               -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
               https://api.github.com/repos/${{ github.repository }}/pages/deployments \
-              -d '{"artifact_id":"${{ steps.upload_artifact.outputs.artifact-id }}","environment":"github-pages","pages_build_version":"$VERSION","oidc_token":"$OIDC_TOKEN"}'
+              -d '{"artifact_id":${{ steps.upload_artifact.outputs.artifact-id }},"environment":"github-pages","pages_build_version":"$VERSION","oidc_token":"$OIDC_TOKEN"}'
